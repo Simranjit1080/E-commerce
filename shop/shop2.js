@@ -21,6 +21,7 @@ var flagj=0;
 // 	p:"/products"
 // }
 var d=JSON.parse(localStorage.getItem("Products"));
+
 if(d)
 {
 for(var i=0;i<d.length;i++)
@@ -31,7 +32,6 @@ for(var i=0;i<d.length;i++)
 	k.price=d[i].price;
 	k.quan=d[i].quan;
 	products.push(k);
-	sendToServer(products);
 	var h=document.createElement("h4");
 	var name=products[i].name;
 	var desc=products[i].desc;
@@ -42,10 +42,13 @@ for(var i=0;i<d.length;i++)
 	var h1=document.createElement("h4");
 	var del=document.createElement("button");
 	del.innerHTML="Delete";
+	del.setAttribute("class","dbtn");
 	var upd=document.createElement("button");
 	upd.innerHTML="Update";
+	upd.setAttribute("class","ubtn");
 	var atc=document.createElement("button");
 	atc.innerHTML="Add to Cart";
+	atc.setAttribute("class","atcbtn");
 	h1.appendChild(del);
 	h1.appendChild(upd);
 	h1.appendChild(atc);
@@ -64,6 +67,8 @@ for(var i=0;i<d.length;i++)
 						});
 	pid++;
 }
+sendToServer(products);
+}
 var cartst=JSON.parse(localStorage.getItem("Cart"));
 if(cartst)
 {
@@ -75,9 +80,8 @@ if(cartst)
 	k.price=cartst[i].price;
 	k.quan=cartst[i].quan;
 	cart.push(k);
-	sendToCartServer(cart);
 	}
-}
+	sendToCartServer(cart);
 }
 function paneldom()
 {
@@ -136,7 +140,7 @@ form.setAttribute("onSubmit","addTojson();addToList();deleteNewProductPanel();un
 
  	var btn=document.createElement("button");
  	btn.setAttribute("type","submit");
- 	btn.setAttribute("id","submitbtn");
+ 	btn.setAttribute("class","btn");
  	btn.innerHTML="SUBMIT";
  	form.appendChild(btn);
 
@@ -201,7 +205,9 @@ form.setAttribute("onSubmit","upjson(po);deleteNewProductPanel();unhide(panellin
 
  	var btn=document.createElement("button");
  	btn.setAttribute("type","submit");
+ 	btn.setAttribute("class","btn");
  	btn.innerHTML="SUBMIT";
+
  	form.appendChild(btn);
 
  	panel.appendChild(form);
@@ -316,10 +322,13 @@ function upjson2(l)
 	var h1=document.createElement("h4");
 	var del=document.createElement("button");
 	del.innerHTML="Delete";
+	del.setAttribute("class","dbtn");
 	var upd=document.createElement("button");
 	upd.innerHTML="Update";
+	upd.setAttribute("class","ubtn");
 	var atc=document.createElement("button");
 	atc.innerHTML="Add to Cart";
+	atc.setAttribute("class","atcbtn");
 	h1.appendChild(del);
 	h1.appendChild(upd);
 	h1.appendChild(atc);
@@ -401,10 +410,13 @@ function addToList()
 	var h1=document.createElement("h4");
 	var del=document.createElement("button");
 	del.innerHTML="Delete";
+	del.setAttribute("class","dbtn");
 	var upd=document.createElement("button");
 	upd.innerHTML="Update";
+	upd.setAttribute("class","ubtn");
 	var atc=document.createElement("button");
 	atc.innerHTML="Add to Cart";
+	atc.setAttribute("class","atcbtn");
 	h1.appendChild(del);
 	h1.appendChild(upd);
 	h1.appendChild(atc);
@@ -447,6 +459,7 @@ function showCart()
 	 var h1=document.createElement("h4");
 	var del=document.createElement("button");
 	del.innerHTML="Delete";
+	del.setAttribute("class","dbtn");
 	h1.appendChild(del);
 	btns2.appendChild(h1);
 	del.addEventListener("click",function (event){

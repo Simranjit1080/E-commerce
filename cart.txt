@@ -1,1 +1,1 @@
-[{"name":"Laptop","desc":"HP","price":60000,"quan":8}]
+[{"name":"Laptop","desc":"HP","price":60000,"quan":3}]
