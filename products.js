@@ -1,6 +1,17 @@
 var express=require("express");
 var fs=require("fs");
 var app=express();
+const mongoose=require("mongoose");
+mongoose.connect("mongodb://localhost:27017/products",{ useNewUrlParser: true },(error)=>{
+	if(!error)
+	{
+		console.log("success connected");
+	}
+	else
+	{
+		console.log("error connecting to db");
+	}
+});
 // var cors=require("cors");
 app.use(express.json());
 app.use(express.urlencoded({isextended:false}));
