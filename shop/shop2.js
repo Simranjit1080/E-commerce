@@ -16,10 +16,6 @@ var flag2=0;
 var flag3=0;
 var flag7=0;
 var flagj=0;
-// var  urls = {
-// 	c:"/cart",
-// 	p:"/products"
-// }
 var d=JSON.parse(localStorage.getItem("Products"));
 
 if(d)
@@ -276,12 +272,6 @@ function upjson(l)
 }
 function upjson2(l)
 {
-
-	
-	// products[l].name=cart[l].name;
-	// products[l].desc=cart[l].desc;
-	// products[l].price=parseInt(cart[l].price);
-	// products[l].quan=parseInt(cart[l].quan)
 	flagj=0;
 	var c;
 	if(products.length>=1)
@@ -539,9 +529,6 @@ function atcbtn(event)
 						var json=JSON.stringify(products);
 						sendToServer(products);
 						localStorage.setItem("Products",json);
-					
-						// flag2=0;
-						// flag3=1;
 						if(flag2==1)
 						{
 							showCart();
@@ -558,8 +545,6 @@ function atcbtn(event)
 
   function sendToServer(i)
 {
-// xhttp.open("GET","http://api.github.com/repositories");
-// xhttp.open("GET","http://localhost:4000/test?name=simran&age=19");
 var xhttp = new XMLHttpRequest();
 xhttp.open("POST","http://localhost:4000/addProduct");
 xhttp.setRequestHeader("Content-type","application/json");
@@ -567,10 +552,22 @@ xhttp.send(JSON.stringify(i));
 }
 function sendToCartServer(i)
 {
-// xhttp.open("GET","http://api.github.com/repositories");
-// xhttp.open("GET","http://localhost:4000/test?name=simran&age=19");
 var xhttp = new XMLHttpRequest();
 xhttp.open("POST","http://localhost:4000/addToCart");
+xhttp.setRequestHeader("Content-type","application/json");
+xhttp.send(JSON.stringify(i));
+}
+function sendToServerDB(i)
+{
+var xhttp = new XMLHttpRequest();
+xhttp.open("POST","http://localhost:4000/addProductDB");
+xhttp.setRequestHeader("Content-type","application/json");
+xhttp.send(JSON.stringify(i));
+}
+function sendToCartDB(i)
+{
+var xhttp = new XMLHttpRequest();
+xhttp.open("POST","http://localhost:4000/addToCartDB");
 xhttp.setRequestHeader("Content-type","application/json");
 xhttp.send(JSON.stringify(i));
 }

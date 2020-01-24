@@ -1,1 +1,1 @@
-[{"name":"Laptop","desc":"HP","price":60000,"quan":8},{"name":"Laptop","desc":"Dell","price":60000,"quan":1},{"name":"Laptop","desc":"Acer","price":60000,"quan":4},{"name":"Laptop","desc":"sad","price":60000,"quan":3240}]
+[]
